@@ -1,0 +1,17 @@
+@charset 'utf-8';
+/*
+ Theme Name:	SEO
+ Theme URI:		http://seo.axiomthemes.com/
+ Description:	SEO - Clear Wordpress theme
+ Author:		axiomthemes
+ Author URI:	http://themeforest.net/user/axiomthemes/portfolio
+ Template:		seo
+ Version:		1.0
+ Tags:			light, inheritable theme-options
+ Text Domain:	axiomthemes
+*/
+
+@import url("../seo/style.css");
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */

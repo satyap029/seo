@@ -1,0 +1,67 @@
+body {
+    font: 12px Verdana;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+.lpd {
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.lpd .form td, .lpd .form th{
+    padding: 10px;
+    vertical-align: top;
+}
+
+.lpd .form th {
+    padding-left: 0px;
+}
+
+.lpd .form .text {
+    padding: 2px 4px;
+    border: 1px solid #aaa;
+    width: 250px;
+}
+
+.lpd .form .text:focus, .lpd .form .text:active, .lpd .form .text:hover {
+    border-color: #666;
+}
+
+.lpd .results {
+    display: none;
+}
+
+.lpd .results .loader {
+    display: none;
+    padding: 5px 10px;
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+}
+
+.lpd .results .loader img{
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.lpd .results textarea {
+    width: 350px;
+    height: 50px;
+    border: 1px solid #eee;
+    background: #fafafa;
+}
+
+.lpd .results table {
+    border-collapse: collapse;
+}
+
+.lpd .results table td, .lpd .results table th {
+    border: 1px solid #eee;
+    padding: 6px;
+}
+
+.lpd #csvresults {
+display: none;
+}

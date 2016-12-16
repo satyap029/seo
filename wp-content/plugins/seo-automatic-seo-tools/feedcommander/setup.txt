@@ -1,0 +1,53 @@
+<?php
+/////////////////////////////////////////////////////////////////////////////////////
+// If you are not very familiar with php and/or variables - here are some tips:    //
+//                                                                                 //
+// 1. The text you see here and below with '//' before it are comments only.       //
+// These comments are to help quide you to set up your feedcommander.              //
+// Each area that you may change also comments the default text to use             //
+// if later you decide to make changes to this file, but may not remember what     //
+// the default was.                                                                //
+//                                                                                 //
+// 2. The variables you will change begin with a '$'. The changes you make should  //
+// replace the text inside of the "" after the "=" of these variables.             //
+//                                                                                 //
+// 3. If you choose to use include files,                                          //
+// you can use a path such as header.inc or folder/header.inc.                     //
+// If you are receiving an error for your includes, try using the full path        //
+// example: http://www.yourdomain.com/header.inc                                   //
+// or http://www.yourdomain.com/includes/header.inc                                //
+// If you use the default text, no include files will be used and the              //
+// feedcommander will be displayed alone as a full page.                           //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////         
+
+// Set your include files here. You can use any or all below.
+// For any areas you do not want to use an include file, just use the default text.
+
+// Set the Header in the variable below. (default is "header_default";)
+	$inc_header = "header_default";
+
+
+// Set the Left Sidebar in the variable below. (default is "left_sidebar_default";)
+	$inc_l_sidebar = "left_sidebar_default";
+
+
+// Set the Right Sidebar in the variable below. (default is "right_sidebar_default";)
+	$inc_r_sidebar = "right_sidebar_default";
+
+
+// Set the Footer in the variable below. (default is "footer_default";)
+	$inc_footer = "footer_default";
+
+
+// LINKBACK - The linkback will display the text and link you set at the bottom of the rss feed
+// displayed on the users website.
+// To use the linkback option, set the variable to 2.
+// 1 = linkback off
+// 2 = linkback on
+    $lb = "2"; 
+
+// If you have chosen to display the linkback, the next line will set the text and link you choose.
+// Format -> ("http://www.yourlinkhere.com", "Text you want people to see as the link here."); 
+	$linkback = array ( "http://www.seoautomatic.com/free-tools/feedcommander/", "RSS feed by SEO Automatic");
+?>

@@ -1,0 +1,143 @@
+.noscreen {
+display: none;
+}
+
+#seoautoresults {
+	text-align: left;
+}
+
+#seoautoresults h4 {
+	padding-top: 1em;
+	font-weight: bold;
+	font-size: 18px;
+	}
+	
+#seoautoresults table {
+	width: 100%;
+}
+
+#seoautoresults table td {
+	padding: 8px;
+	vertical-align: top;
+}
+
+#seoautoresults table .even td {
+	background-color: #d4d4d4;
+padding: 25px 8px;
+}
+
+#seoautoresults table tr.odd td {
+	background-color: #ffffff;
+padding: 25px 8px;
+}
+
+#seoautoresults table td.subject {
+	font-weight: bold;
+	font-size: 16px;
+	width: 35%;
+}
+	
+#summary a {
+	font-weight: normal;
+}
+
+/* Lists bullet styles in the results tables */
+
+.message {
+    margin-top:2em;
+    padding-left: 0;
+    list-style: none;
+	font-weight:normal;
+}
+	
+.message li {	
+		margin-left: 1px;
+    padding-left: 14px;
+    background-image: url('../images/icons/famfamfam/silk/bullet_blue.png');
+    background-repeat: no-repeat;
+    background-position: 0 6px
+}
+
+html[xmlns] .message li {
+    background: none; /* undo the background-image */
+    list-style-image: url('../images/icons/famfamfam/silk/bullet_blue.png');
+    padding: 0
+}
+
+#h1 .message li {
+	margin-left:24px;
+  padding-left: 14px;
+  background-repeat: no-repeat;
+  background-position: 0 6px;
+  background-image: url('../images/icons/famfamfam/silk/text_heading_1.png');
+}
+
+#h2 .message li {
+	margin-left:24px;
+  padding-left: 14px;
+  background-repeat: no-repeat;
+  background-position: 0 6px;
+  background-image: url('../images/icons/famfamfam/silk/text_heading_2.png');
+}
+
+#h1 html[xmlns] .message {
+    padding-left: 2em;
+}
+
+#h2 html[xmlns] .message {
+    padding-left: 2em;
+}
+
+html[xmlns] #h1 .message li {
+	list-style-image: url('../images/icons/famfamfam/silk/text_heading_1.png');
+  background: none; /* undo the background-image */
+  padding: 0
+}
+
+html[xmlns] #h2 .message li {
+	list-style-image: url('../images/icons/famfamfam/silk/text_heading_2.png');
+  background: none; /* undo the background-image */
+  padding: 0
+}
+
+div.htmltooltip{
+	position: absolute; /*leave this and next 3 values alone*/
+	z-index: 1000;
+	left: -1000px;
+	top: -1000px;
+	background: #ffffff;
+	border: 5px solid #AAD6F0;
+	color: black;
+	padding: 3px;
+	width: 250px; /*width of tooltip*/
+	text-align: left;
+}
+
+.tooltip, .subject p{ font-weight:normal; margin-top:6px; }
+p.tooltip{font-style:italic;}
+
+
+
+img.icon {
+	vertical-align: middle;
+	padding-right: 4px;
+	padding-left: 4px;
+	border: none;
+	float:left;
+}
+
+img.searchicon {
+	vertical-align: middle;
+	padding:0px 4px;
+}
+
+#legend {
+	text-align:center;
+}
+
+#overview td { background: none!important; }
+
+#throbber {
+	text-align: center;
+	}
+#seoautoresults p { font-size: 16px; }

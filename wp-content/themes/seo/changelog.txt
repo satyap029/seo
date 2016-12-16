@@ -1,0 +1,13 @@
+Version 1.2
+        * Updated: Documentation
+        * Updated: Dummy content
+        * Updated: Child theme
+        * Updated: prettyPhoto v3.1.6
+        * Updated: visual composer v4.5.3
+        + Added: Custom 'check your site' form
+
+Version 1.1
+		+ Added: Built-in demo data import: one click  - and your website becomes a precise copy of our demo site!
+
+Version 1.0
+	Release

@@ -1,0 +1,251 @@
+<% 
+' ##### Main template constants 
+MainTemplateHeader = "<table>" 
+MainTemplateFooter = "</table>" 
+' ##### 
+' ##### Item template. 
+' ##### {LINK} will be replaced with item link 
+' ##### {TITLE} will be replaced with item title 
+' ##### {DESCRIPTION} will be replaced with item description 
+' ================================================ 
+Set xmlHttp = Server.CreateObject("MSXML2.XMLHTTP.3.0") 
+	xmlHttp.Open "Get", src, false 
+	xmlHttp.Send() 
+	RSSXML = xmlHttp.ResponseText 
+Set xmlDOM = Server.CreateObject("MSXML2.DomDocument.3.0") 
+	xmlDOM.async = false 
+	xmlDOM.LoadXml(RSSXML)
+Set BlogHeadlines = xmlDOM.getElementsByTagName("title")
+Set BlogHeadline = BlogHeadlines.item(0)
+	for each child in BlogHeadline.childNodes
+		BlogTitle = child.text
+	next 
+Set xmlHttp = Nothing ' clear HTTP object
+Set RSSItems = xmlDOM.getElementsByTagName("item")
+Set xmlDOM = Nothing ' clear XML
+
+if lines = "0" then 
+totalFeeds = RSSItems.Length - 1
+else
+totalFeeds = lines - 1
+end if
+
+t_bold = t_s_bold
+if t_bold = "y" then
+	t_bold = "bold"
+else
+	t_bold = "normal"
+end if
+
+t_italic = t_s_italic
+if t_italic = "y" then
+	t_italic = "italic"
+else
+	t_italic = "normal"
+end if
+
+t_underline = t_s_underline
+if t_underline = "y" then
+	t_underline = "underline"
+else
+	t_underline = "none"
+end if
+
+if rt_color = "o" then
+	t_color = t_color_o
+end if
+
+if t_size = "" then
+	t_size = "8"
+end if
+
+if boxpadding = "" then
+	boxpadding = "0"
+end if
+
+if b_color_o = "" then
+	tbgcolor = b_color
+else
+	tbgcolor = b_color_o
+end if
+
+if rb_b_weight = "s" then
+	rb_b_weight = b_b_weight
+else
+	rb_b_weight = b_b_weight_o
+end if
+
+if rb_b_color = "s" then
+	rb_b_color = b_b_color
+else
+	rb_b_color = rb_b_color_o
+end if
+
+mq_style = "scroll"
+
+if t_s_marquee = "y" then
+	title_mq = "<marquee behavior=" & mq_style & " height='" & mq_height & "' direction=" _
+		 		& mq_di & " scolldelay=" & mq_dy & " scrollamount=" & mq_n & ">"
+	title_mq_end = "</marquee>"
+else
+	title_mq = ""
+	title_mq_end = ""
+end if
+
+if mq_height = "" then
+	mq_height = i_size
+end if
+
+if totalFeeds > 0 then
+	if mq = "y" then
+	Response.Write "<marquee behavior=" & mq_style & " height='" & mq_height & "' direction=" _
+		 		& mq_di & " scolldelay=" & mq_dy & " scrollamount=" & mq_n & ">"
+	end if
+	Response.Write "<table width='" & b_width & "' height='" & b_height _
+		& "' style='border-collapse: collapse; border-style: " & b_style & ";" _
+		& " border-width: " & rb_b_weight & ";' bordercolor='" & rb_b_color _
+		& "' cellpadding='" & boxpadding & "' bgcolor='" & tbgcolor & "'>"
+	if title = "y" then
+		Response.Write "<TR><TD width='' height='' align='" & t_align & "'>" & title_mq & "<font style='font-family:" & t_font & ";font-size:" _
+			& t_size & ";text-decoration:" & t_underline & ";" _ 
+            & "color:" & t_color & ";font-style:" & t_italic & ";font-weight:" & t_bold & ";'>" _
+            & BlogTitle & "</font>" & title_mq_end & "</TD></TR>"
+	End If
+End If
+
+ 
+cntVar = -1 
+For i = 0 To totalFeeds 
+	Set RSSItem = RSSItems.item(i) 
+		for each child in RSSItem.childNodes 
+			Select case lcase(child.nodeName) 
+				case "title" 
+					item = child.text 
+				case "link" 
+					link = child.text 
+				case "description" 
+					content = child.text 
+			End Select 
+	next 
+
+i_bold = i_s_bold
+if i_bold = "y" then
+	i_bold = "bold"
+else
+	i_bold = "normal"
+end if
+
+i_italic = i_s_italic
+if i_italic = "y" then
+	i_italic = "italic"
+else
+	i_italic = "normal"
+end if
+
+i_underline = i_s_underline
+if i_underline = "y" then
+	i_underline = "underline"
+else
+	i_underline = "none"
+end if
+
+c_bold = c_s_bold
+if c_bold = "y" then
+	c_bold = "bold"
+else
+	c_bold = "normal"
+end if
+
+c_italic = c_s_italic
+if c_italic = "y" then
+	c_italic = "italic"
+else
+	c_italic = "normal"
+end if
+
+c_underline = c_s_underline
+if c_underline = "y" then
+	c_underline = "underline"
+else
+	c_underline = "none"
+end if
+
+if ri_color = "o" then
+	i_color = i_color_o
+end if
+
+if rc_color = "o" then
+	c_color = c_color_o
+end if
+
+if i_size = "" then
+	i_size = "8"
+end if
+
+if c_size = "" then
+	c_size = "8"
+end if
+
+if i_s_marquee = "y" then
+	item_mq = "<marquee behavior=" & mq_style & " height='" & mq_height & "' direction=" _
+		 		& mq_di & " scolldelay=" & mq_dy & " scrollamount=" & mq_n & ">"
+	item_mq_end = "</marquee>"
+else
+	item_mq = ""
+	item_mq_end = ""
+end if
+
+if c_s_marquee = "y" then
+	content_mq = "<marquee behavior=" & mq_style & " height='" & mq_height & "' direction=" _
+		 		& mq_di & " scolldelay=" & mq_dy & " scrollamount=" & mq_n & ">"
+	content_mq_end = "</marquee>"
+else
+	content_mq = ""
+	content_mq_end = ""
+end if
+		 
+tdFormat = "<TR><TD width='' height='' align='"& c_align & "'>" & item_mq & "<a href=" & """{LINK}""" & "><font style='font-family:" & i_font & ";font-size:" _
+			& i_size & ";text-decoration:" & i_underline & ";" _ 
+            & "color:" & i_color & ";font-style:" & i_italic & ";font-weight:" & i_bold & ";'>" _
+            & "{TITLE}</font></a>" & item_mq_end & "<br />" _
+            & content_mq & "<font style='font-family:" & c_font & ";font-size:" _
+			& c_size & ";text-decoration:" & c_underline & ";" _ 
+            & "color:" & c_color & ";font-style:" & c_italic & ";font-weight:" & c_bold & ";'>" _
+            & "{DESCRIPTION}</font>" & content_mq_end & "</td></tr>"
+
+	
+i_max_char = i_max_char
+c_max_char = c_max_char
+cntVar = J + 1 
+if J < totalFeeds then 
+	tdContent = Replace(tdFormat,"{LINK}",link)
+	if i_max_char = "0" then 
+		i_max_char = len(item)
+	end if
+	tdContent = Replace(tdContent,"{TITLE}",Left(item,i_max_char))
+	if c_max_char = "0" then 
+		c_max_char = len(content)
+	end if	
+	Response.Write Replace(tdContent,"{DESCRIPTION}",Left(content,c_max_char))
+	tdContent = "" 
+End if 
+Next 
+
+if lb = "2" then
+	Response.Write "<tr><td align='right'><a href='" & linkback1 & "'>" _
+			& "<font style='font-family:" & c_font & ";font-size:" _
+			& c_size & ";text-decoration:underline;" _ 
+            	& "color:" & c_color & ";font-style:" & c_italic _
+			& ";font-weight:" & c_bold & ";'>"  & linkback2 & "</font></a></td></tr>"
+end if
+
+if totalFeeds > 0 then 
+	Response.Write "</TABLE>"
+	if mq = "y" then
+	Response.Write "</marquee>"
+    end if
+else
+	Err = "<p><em>Error:</em> Feed failed! Causes may be (1) No data  found for RSS feed $src; (2) There are no items are available for this feed; (3) The RSS feed does not validate.<br /><br /> Please verify that the URL <a href='" & src & "'>" & src & "</a> works first in your browser and that the feed passes a <a href='http://feedvalidator.org/check.cgi?url=" & src & "'>validator test</a>.</p></div>" 
+	Response.Write Err 
+End If 
+%>
